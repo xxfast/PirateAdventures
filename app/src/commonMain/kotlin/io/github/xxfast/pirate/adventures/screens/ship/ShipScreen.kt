@@ -16,11 +16,7 @@ import com.arkivanov.essenty.parcelable.Parcelize
 import io.github.xxfast.decompose.router.Router
 import io.github.xxfast.decompose.router.content.RoutedContent
 import io.github.xxfast.decompose.router.rememberRouter
-import io.github.xxfast.pirate.adventures.screens.MainScreens.Dock
-import io.github.xxfast.pirate.adventures.screens.MainScreens.Island
-import io.github.xxfast.pirate.adventures.screens.MainScreens.Ship
 import io.github.xxfast.pirate.adventures.components.RoutedSlide
-import io.github.xxfast.pirate.adventures.screens.island.IslandScreen
 import io.github.xxfast.pirate.adventures.screens.ship.ShipScreens.CrowsNest
 import io.github.xxfast.pirate.adventures.screens.ship.ShipScreens.Deck
 import io.github.xxfast.pirate.adventures.screens.ship.ShipScreens.Gangway

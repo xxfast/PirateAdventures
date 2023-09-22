@@ -1,5 +1,6 @@
 package io.github.xxfast.pirate.adventures.screens.ship
 
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.gestures.Orientation.Vertical
 import androidx.compose.foundation.layout.Box
@@ -23,20 +24,20 @@ import io.github.xxfast.pirate.adventures.screens.ship.ShipScreens.Gangway
 
 @Parcelize
 sealed class ShipScreens : Parcelable {
-  data object Gangway: ShipScreens()
-  data object Deck: ShipScreens()
-  data object CrowsNest: ShipScreens()
+  data object Gangway : ShipScreens()
+  data object Deck : ShipScreens()
+  data object CrowsNest : ShipScreens()
 }
 
 @Composable
 fun ShipScreen() {
-  val router: Router<ShipScreens> = rememberRouter(ShipScreens::class, stack = listOf(Gangway))
+  val router: Router<ShipScreens> = rememberRouter(ShipScreens::class) { listOf(Gangway) }
 
   RoutedContent(
     router = router,
-    animation = stackAnimation(slide(orientation = Vertical))
-  ){ screen ->
-    when(screen){
+    animation = stackAnimation(slide(animationSpec = tween(500), orientation = Vertical))
+  ) { screen ->
+    when (screen) {
       Gangway -> RoutedSlide(
         orientation = Vertical,
         onNext = { router.push(Deck) }
@@ -63,7 +64,7 @@ fun ShipScreen() {
       CrowsNest -> RoutedSlide(
         orientation = Vertical,
         onPrevious = { router.pop() }
-      ){
+      ) {
         Box(
           modifier = Modifier
             .fillMaxSize()

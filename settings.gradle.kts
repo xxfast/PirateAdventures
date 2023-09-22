@@ -14,5 +14,4 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "PirateAdventures"
-include(":android")
 include(":app")

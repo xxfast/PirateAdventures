@@ -1,5 +1,6 @@
 package io.github.xxfast.pirate.adventures.screens
 
+import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,8 +15,9 @@ import com.arkivanov.decompose.router.stack.pop
 import com.arkivanov.decompose.router.stack.push
 import com.arkivanov.essenty.parcelable.Parcelable
 import com.arkivanov.essenty.parcelable.Parcelize
-import io.github.xxfast.decompose.LocalComponentContext
+import io.github.xxfast.decompose.router.LocalRouterContext
 import io.github.xxfast.decompose.router.Router
+import io.github.xxfast.decompose.router.RouterContext
 import io.github.xxfast.decompose.router.content.RoutedContent
 import io.github.xxfast.decompose.router.rememberRouter
 import io.github.xxfast.pirate.adventures.components.RoutedSlide
@@ -35,14 +37,14 @@ sealed class MainScreens : Parcelable {
 @OptIn(ExperimentalDecomposeApi::class)
 @Composable
 fun MainScreen() {
-  val router: Router<MainScreens> = rememberRouter(MainScreens::class, stack = listOf(Island))
+  val router: Router<MainScreens> = rememberRouter(MainScreens::class) { listOf(Island) }
 
   RoutedContent(
     router = router,
     animation = predictiveBackAnimation(
-      backHandler = LocalComponentContext.current.backHandler,
+      backHandler = LocalRouterContext.current.backHandler,
       onBack = { router.pop() },
-      animation = stackAnimation(slide())
+      animation = stackAnimation(slide(animationSpec = tween(500)))
     )
   ){ screen ->
     when(screen){

@@ -14,4 +14,5 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "PirateAdventures"
-include(":app")
+include(":decompose-router")
+include(":shared")

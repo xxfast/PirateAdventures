@@ -16,9 +16,11 @@ import com.arkivanov.essenty.parcelable.Parcelize
 import io.github.xxfast.decompose.router.Router
 import io.github.xxfast.decompose.router.content.RoutedContent
 import io.github.xxfast.decompose.router.rememberRouter
-import io.github.xxfast.pirate.adventures.components.RoutedSlide
+import io.github.xxfast.pirate.adventures.shared.components.Slide
 import io.github.xxfast.pirate.adventures.screens.dock.DockScreens.Ship
 import io.github.xxfast.pirate.adventures.screens.dock.DockScreens.Wharf
+import io.github.xxfast.pirate.adventures.shared.screens.dock.ShipView
+import io.github.xxfast.pirate.adventures.shared.screens.dock.WharfView
 import io.github.xxfast.pirate.adventures.utils.slide
 
 @Parcelize
@@ -42,28 +44,20 @@ fun DockScreen() {
     )
   ) { screen ->
     when (screen) {
-      Ship -> RoutedSlide(
+      Ship -> Slide(
         orientation = Vertical,
         onNext = { router.push(Wharf) },
         inverted = false,
       ) {
-        Box(
-          modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Gray),
-        )
+        ShipView()
       }
 
-      Wharf -> RoutedSlide(
+      Wharf -> Slide(
         orientation = Vertical,
         onPrevious = { router.pop() },
         inverted = false,
       ) {
-        Box(
-          modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black),
-        )
+        WharfView()
       }
     }
   }

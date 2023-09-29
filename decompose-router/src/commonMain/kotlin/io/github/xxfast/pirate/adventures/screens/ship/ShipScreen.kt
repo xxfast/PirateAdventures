@@ -19,11 +19,14 @@ import com.arkivanov.essenty.parcelable.Parcelize
 import io.github.xxfast.decompose.router.Router
 import io.github.xxfast.decompose.router.content.RoutedContent
 import io.github.xxfast.decompose.router.rememberRouter
-import io.github.xxfast.pirate.adventures.components.Ocean
-import io.github.xxfast.pirate.adventures.components.RoutedSlide
+import io.github.xxfast.pirate.adventures.shared.components.Ocean
+import io.github.xxfast.pirate.adventures.shared.components.Slide
 import io.github.xxfast.pirate.adventures.screens.ship.ShipScreens.CrowsNest
 import io.github.xxfast.pirate.adventures.screens.ship.ShipScreens.Deck
 import io.github.xxfast.pirate.adventures.screens.ship.ShipScreens.Gangway
+import io.github.xxfast.pirate.adventures.shared.screens.ship.CrowsNestView
+import io.github.xxfast.pirate.adventures.shared.screens.ship.DeckView
+import io.github.xxfast.pirate.adventures.shared.screens.ship.GangwayView
 import io.github.xxfast.pirate.adventures.utils.slide
 
 @Parcelize
@@ -48,48 +51,29 @@ fun ShipScreen() {
     )
   ) { screen ->
     when (screen) {
-      Gangway -> RoutedSlide(
-        orientation = Vertical,
+      Gangway -> Slide(
         onNext = { router.push(Deck) },
+        orientation = Vertical,
         inverted = true,
       ) {
-        Box(
-          modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Gray),
-        ) {
-          Ocean(
-            modifier = Modifier
-              .fillMaxWidth()
-              .fillMaxHeight(.25f)
-              .align(Alignment.BottomCenter)
-          )
-        }
+        GangwayView()
       }
 
-      Deck -> RoutedSlide(
-        orientation = Vertical,
+      Deck -> Slide(
         onNext = { router.push(CrowsNest) },
         onPrevious = { router.pop() },
+        orientation = Vertical,
         inverted = true,
       ) {
-        Box(
-          modifier = Modifier
-            .fillMaxSize()
-            .background(Color.DarkGray),
-        )
+        DeckView()
       }
 
-      CrowsNest -> RoutedSlide(
-        orientation = Vertical,
+      CrowsNest -> Slide(
         onPrevious = { router.pop() },
+        orientation = Vertical,
         inverted = true,
       ) {
-        Box(
-          modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black),
-        )
+        CrowsNestView()
       }
     }
   }

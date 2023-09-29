@@ -1,10 +1,11 @@
-package io.github.xxfast.pirate.adventures.components
+package io.github.xxfast.pirate.adventures.shared.components
 
 import androidx.compose.foundation.gestures.Orientation
 import androidx.compose.foundation.gestures.Orientation.Horizontal
 import androidx.compose.foundation.gestures.Orientation.Vertical
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.WindowInsets
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.statusBars
 import androidx.compose.foundation.layout.windowInsetsPadding
@@ -21,14 +22,15 @@ import androidx.compose.ui.Alignment.Companion
 import androidx.compose.ui.Modifier
 
 @Composable
-fun RoutedSlide(
+fun Slide(
   orientation: Orientation = Horizontal,
   inverted: Boolean = false,
   onNext: (() -> Unit)? = null,
   onPrevious: (() -> Unit)? = null,
+  modifier: Modifier = Modifier,
   content: @Composable () -> Unit,
 ) {
-  Box {
+  Box(modifier.fillMaxSize()) {
     content()
 
     if (onPrevious != null) IconButton(

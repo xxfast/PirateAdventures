@@ -1,4 +1,4 @@
-package io.github.xxfast.pirate.adventures.shapes
+package io.github.xxfast.pirate.adventures.shared.components
 
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.geometry.Rect

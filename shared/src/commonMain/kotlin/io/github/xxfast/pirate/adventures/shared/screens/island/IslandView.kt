@@ -1,6 +1,5 @@
-package io.github.xxfast.pirate.adventures.screens.island
+package io.github.xxfast.pirate.adventures.shared.screens.island
 
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
@@ -9,7 +8,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun IslandScreen(){
+fun IslandView(){
   Box(
     modifier = Modifier
       .fillMaxSize()

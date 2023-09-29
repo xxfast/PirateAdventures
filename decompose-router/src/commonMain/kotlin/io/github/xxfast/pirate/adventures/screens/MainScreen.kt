@@ -14,12 +14,12 @@ import io.github.xxfast.decompose.router.LocalRouterContext
 import io.github.xxfast.decompose.router.Router
 import io.github.xxfast.decompose.router.content.RoutedContent
 import io.github.xxfast.decompose.router.rememberRouter
-import io.github.xxfast.pirate.adventures.components.RoutedSlide
+import io.github.xxfast.pirate.adventures.shared.components.Slide
 import io.github.xxfast.pirate.adventures.screens.MainScreens.Dock
 import io.github.xxfast.pirate.adventures.screens.MainScreens.Island
 import io.github.xxfast.pirate.adventures.screens.MainScreens.Ship
 import io.github.xxfast.pirate.adventures.screens.dock.DockScreen
-import io.github.xxfast.pirate.adventures.screens.island.IslandScreen
+import io.github.xxfast.pirate.adventures.shared.screens.island.IslandView
 import io.github.xxfast.pirate.adventures.screens.ship.ShipScreen
 
 @Parcelize
@@ -43,20 +43,18 @@ fun MainScreen() {
     )
   ){ screen ->
     when(screen){
-      Island -> RoutedSlide(
-        onNext = { router.push(Ship) }
-      ) {
-        IslandScreen()
+      Island -> Slide(onNext = { router.push(Ship) }) {
+        IslandView()
       }
 
-      Ship -> RoutedSlide(
+      Ship -> Slide(
         onNext = { router.push(Dock) },
         onPrevious = { router.pop() }
       ) {
         ShipScreen()
       }
 
-      Dock -> RoutedSlide(
+      Dock -> Slide(
         onPrevious = { router.pop() }
       ){
         DockScreen()

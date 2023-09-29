@@ -7,6 +7,7 @@ plugins {
     kotlin("multiplatform")
     id("com.android.application")
     id("org.jetbrains.compose")
+    id("kotlin-parcelize")
 }
 
 @OptIn(org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi::class)
@@ -113,7 +114,7 @@ compose.experimental {
     }
 
     uikit.application {
-        bundleIdPrefix = "io.github.xxfast.pirate.adventures.decompose.router"
+        bundleIdPrefix = "io.github.xxfast.pirate.adventures"
         projectName = "PirateAdventures"
 
         deployConfigurations {

@@ -1,11 +1,7 @@
 package io.github.xxfast.pirate.adventures.screens
 
-import androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection
-import androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection.Companion
 import androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection.Companion.End
 import androidx.compose.animation.AnimatedContentTransitionScope.SlideDirection.Companion.Start
-import androidx.compose.animation.slideInHorizontally
-import androidx.compose.animation.slideOutHorizontally
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier

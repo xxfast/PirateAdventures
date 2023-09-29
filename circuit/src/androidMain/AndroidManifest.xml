@@ -5,9 +5,9 @@
         android:supportsRtl="true"
         android:theme="@android:style/Theme.Material.NoActionBar.Fullscreen">
         <activity
-            android:label="Voyager"
             android:name=".MainActivity"
             android:exported="true"
+            android:label="Circuit"
             android:enableOnBackInvokedCallback="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

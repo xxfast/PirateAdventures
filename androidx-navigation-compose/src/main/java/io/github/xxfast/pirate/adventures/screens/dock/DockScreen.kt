@@ -11,7 +11,7 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import io.github.xxfast.pirate.adventures.shared.components.Slide
 import io.github.xxfast.pirate.adventures.shared.screens.dock.ShipView
-import io.github.xxfast.pirate.adventures.shared.screens.ship.DeckView
+import io.github.xxfast.pirate.adventures.shared.screens.dock.WharfView
 
 @Composable
 fun DockScreen() {
@@ -42,7 +42,7 @@ fun DockScreen() {
         orientation = Vertical,
         inverted = false,
       ) {
-        DeckView()
+        WharfView()
       }
     }
   }

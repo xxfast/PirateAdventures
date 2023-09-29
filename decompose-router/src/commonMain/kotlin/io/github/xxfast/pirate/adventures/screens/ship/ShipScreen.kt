@@ -78,3 +78,8 @@ fun ShipScreen() {
     }
   }
 }
+
+@Composable
+fun GangwayScreen() {
+
+}

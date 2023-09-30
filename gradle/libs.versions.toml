@@ -13,6 +13,7 @@ core-ktx = "1.9.0"
 appcompat = "1.6.1"
 material = "1.9.0"
 voyager = "1.0.0-rc07"
+animation-android = "1.5.2"
 
 [libraries]
 agp = { module = "com.android.tools.build:gradle", version.ref = "agp" }
@@ -33,3 +34,4 @@ appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "a
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 voyager-navigator = { module = "cafe.adriel.voyager:voyager-navigator", version.ref = "voyager" }
 voyager-transitions = { module = "cafe.adriel.voyager:voyager-transitions", version.ref = "voyager" }
+androidx-animation-android = { group = "androidx.compose.animation", name = "animation-android", version.ref = "animation-android" }

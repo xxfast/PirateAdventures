@@ -14,8 +14,9 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "PirateAdventures"
-include(":decompose-router")
 include(":shared")
+include(":decompose-router")
 include(":androidx-navigation-compose")
 include(":voyager")
 include(":circuit")
+include(":diy")

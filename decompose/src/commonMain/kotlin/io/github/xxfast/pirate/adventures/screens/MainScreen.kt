@@ -20,23 +20,23 @@ import io.github.xxfast.pirate.adventures.screens.MainComponent.Config.Island
 import io.github.xxfast.pirate.adventures.screens.MainComponent.Config.Ship
 import io.github.xxfast.pirate.adventures.screens.dock.DockComponent
 import io.github.xxfast.pirate.adventures.screens.dock.DockUi
-import io.github.xxfast.pirate.adventures.screens.island.IslandComponent
-import io.github.xxfast.pirate.adventures.screens.island.IslandUi
 import io.github.xxfast.pirate.adventures.screens.ship.ShipComponent
 import io.github.xxfast.pirate.adventures.screens.ship.ShipUi
+import io.github.xxfast.pirate.adventures.shared.components.Slide
+import io.github.xxfast.pirate.adventures.shared.screens.island.IslandView
 
 class MainComponent(
   componentContext: ComponentContext
 ): ComponentContext by componentContext {
   val navigation: StackNavigation<Config> = StackNavigation()
 
-  val childStack: Value<ChildStack<Config, ComponentContext>> = childStack(
+  val childStack: Value<ChildStack<Config, Any>> = childStack(
     source = navigation,
     initialConfiguration = Island,
     handleBackButton = true,
     childFactory = { configuration, componentContext ->
       when(configuration){
-        Island -> IslandComponent(componentContext) { navigation.push(Ship) }
+        Island -> Unit
 
         Ship -> ShipComponent(
           componentContext = componentContext,
@@ -68,8 +68,13 @@ fun MainUi(component: MainComponent) {
       animation = stackAnimation(slide())
     )
   ) {
-    when(val instance: ComponentContext = it.instance){
-      is IslandComponent -> IslandUi(instance)
+    when(val instance = it.instance){
+      is Unit -> Slide(
+        onNext = { component.navigation.push(Ship) }
+      ) {
+        IslandView()
+      }
+
       is ShipComponent -> ShipUi(instance)
       is DockComponent -> DockUi(instance)
     }
